@@ -40,11 +40,24 @@ require __DIR__ . '/classes/gioco.php';
 
 $ossoGomma = new gioco( 'gioco', 20, 'Osso grosso', 'cane', 'bianco', '500g' );
 
-echo "<h3>" . "Pallina" . "</h3>";
+echo "<h3>" . "Osso" . "</h3>";
 echo $ossoGomma -> getTipo() . "<br>";
 echo $ossoGomma -> getPrezzo() . "<br>";
 echo $ossoGomma -> getNome() . "<br>";
 echo $ossoGomma -> getAnimale() . "<br>";
 echo $ossoGomma -> getColore() . "<br>";
 echo $ossoGomma -> getPeso() . "<br>";
+
+require __DIR__ . '/classes/carta.php';
+
+$cartaCred = new carta( 'Papu', 'Gomez', 'papu-mail@gmail.com', 2019 );
+
+echo "<h3>" . "Carta" . "</h3>";
+echo $cartaCred -> getNome() . "<br>";
+echo $cartaCred -> getCognome() . "<br>";
+echo $cartaCred -> getMail() . "<br>";
+echo $cartaCred -> getRegistrata() . "<br>";
+
+// 1o PROBLEMA -> viene detto che trait è already used
+// 2o PROBLEMA -> non funziona la function in carta.php
 ?>
