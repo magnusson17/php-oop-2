@@ -12,107 +12,39 @@ Il pagamento avviene con la carta di credito, che non deve essere scaduta.
 BONUS:
 Alcuni prodotti (es. antipulci) avranno la caratteristica che saranno disponibili solo in un periodo particolare (es. da maggio ad agosto).
 -->
+<?php
 
-<?php 
- 
-class Prodotto {
-    private $tipo;
-    private $prezzo;
-    private $nome;
-    private $registrato;
-    private $carta;
-    
-    private $sconto;
-    private $pagamento;
+require __DIR__ . '/classes/utente.php';
 
-    // construct
-    public function __construct( $_tipo, $_prezzo, $_nome, $_registrato, $_carta ) {
-        $this -> setTipo($_tipo);
-        $this -> setPrezzo($_prezzo);
-        $this -> setNome($_nome);
-        $this -> setRegistrato($_registrato);
-        $this -> setRegistrato($_carta);
-    }
+$user = new utente( 'Papu', 'Gomez', 'papu-mail@gmail.com', true );
 
-    // setter
-    public function setTipo($_tipo) {
-        $this -> tipo = $_tipo;
-        return $this;
-    }
+echo "<h3>" . "User" . "</h3>";
+echo $user -> getNome() . "<br>";
+echo $user -> getCognome() . "<br>";
+echo $user -> getMail() . "<br>";
+echo $user -> getRegistrato() . "<br>";
 
-    public function setPrezzo($_prezzo) {
-        $this -> prezzo = $_prezzo;
-        return $this;
-    }
+require __DIR__ . '/classes/cibo.php';
 
-    public function setNome($_nome) {
-        $this -> nome = $_nome;
-        return $this;
-    }
+$croccantini = new cibo( 'cibo', 10, 'GnamGnam cat', 'gatto', 'solida', 'plastica' );
 
-    public function setRegistrato($_registrato) {
-        $this -> registrato = $_registrato;
-        return $this;
-    }
+echo "<h3>" . "Croccantini" . "</h3>";
+echo $croccantini -> getTipo() . "<br>";
+echo $croccantini -> getPrezzo() . "<br>";
+echo $croccantini -> getNome() . "<br>";
+echo $croccantini -> getAnimale() . "<br>";
+echo $croccantini -> getConsistenza() . "<br>";
+echo $croccantini -> getScatola() . "<br>";
 
-    public function setcarta($_carta) {
-        $this -> carta = $_carta;
-        return $this;
-    }
+require __DIR__ . '/classes/gioco.php';
 
-    // getter
-    public function getTipo() {
-        return $this -> tipo;
-    }
+$ossoGomma = new gioco( 'gioco', 20, 'Osso grosso', 'cane', 'bianco', '500g' );
 
-    public function getPrezzo() {
-        return $this -> prezzo;
-    }
-
-    public function getNome() {
-        return $this -> nome;
-    }
-
-    public function getRegistrato() {
-        return $this -> registrato;
-    }
-
-    public function getcarta() {
-        return $this -> carta;
-    }
-
-    // functions
-
-    // 1) sconto
-    public function setSconto() {
-        if( $this -> registrato = true ) {
-            $this -> sconto = 0.2;
-        } else {
-            $this -> sconto = 1;
-        }
-        return $this;
-    }
-
-    public function getSconto() {
-        return $this -> sconto;
-    }
-
-    // 2) carta valida/scaduta
-    public function setPagamento() {
-        if( $this -> carta = true) {
-            $this -> pagamento = true;
-        } else {
-            $this -> pagamento = false;
-        }
-        return $this;
-    }
-
-    public function getPagamento() {
-        return $this -> pagamento;
-    }
-}
-
-$prova = new Prodotto ( 'qualsiasi', 30, 'prova', true, false );
-$prova -> setSconto();
-echo $prova -> getSconto();
+echo "<h3>" . "Pallina" . "</h3>";
+echo $ossoGomma -> getTipo() . "<br>";
+echo $ossoGomma -> getPrezzo() . "<br>";
+echo $ossoGomma -> getNome() . "<br>";
+echo $ossoGomma -> getAnimale() . "<br>";
+echo $ossoGomma -> getColore() . "<br>";
+echo $ossoGomma -> getPeso() . "<br>";
 ?>
